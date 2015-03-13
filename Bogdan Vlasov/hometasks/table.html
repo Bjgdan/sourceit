@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+</head>
+<body>
+<script>
+// Создаеем двумерный массив массив
+var n = prompt("Enter n","");// Задаем размер матрицы
+var table = new Array(n);		
+for(var i = 0; i < n;i++)// Объявили массив с n строками и n столбцами
+	table[i] = new Array(n);		
+for(var row = 0, str = '';row < n; row++) {// Заполняем массив row-строка col-столбец
+	for(var col = 0; col < n; col++) {
+	 if (row == col) { table[row][col] = 1;// Далее идут условия,которые основаны на расположении элементов относительно главной и побочной диагоналей.
+	 str += table[row][col] + '  ';
+	 }
+	 else if  ((row+col)==(n-1)) { table[row][col] = 2;
+	 str += table[row][col] + '  ';
+	} else if (row<col && (row+col)<(n-1)) { table[row][col] = 3;
+	str += table[row][col] + '  ';
+	} else if (row<col && (row+col)>(n-1)){ table[row][col] = 4;
+	str += table[row][col] + '  ';
+	}  else if (row>col && (row+col)>(n-1)){ table[row][col] = 5;
+	str += table[row][col] + '  ';
+	}
+	else { table[row][col] = 6;
+	str += table[row][col] + '  ';
+	}
+	}
+	console.log(str);
+	str ="";
+}
+</script>
+</body>
+</html>
